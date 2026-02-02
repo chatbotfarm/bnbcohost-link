@@ -13,311 +13,529 @@
   <link rel="canonical" href="https://bnbcohost.link/" />
 
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     html { scroll-behavior: smooth; }
-    .glass { backdrop-filter: saturate(160%) blur(8px); background: rgba(15,23,42,.7); }
+    /* Soft-luxury background texture */
+    .bg-noise {
+      background-image:
+        radial-gradient(1200px 600px at 20% 0%, rgba(16,185,129,.10), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(2,132,199,.10), transparent 50%),
+        linear-gradient(to bottom, rgba(2,6,23,0.0), rgba(2,6,23,0.0));
+    }
+    .glass {
+      backdrop-filter: saturate(160%) blur(10px);
+      background: rgba(255,255,255,.78);
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+
+<body class="bg-[#FAFAF8] text-slate-900 antialiased">
+
+  <!-- Top Bar -->
+  <div class="hidden md:block border-b border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-xs text-slate-600">
+      <p class="flex items-center gap-2">
+        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+        Boutique co-hosting across Maryland · DC · Virginia
+      </p>
+      <div class="flex items-center gap-4">
+        <a href="tel:+12402624678" class="hover:text-slate-900 underline underline-offset-4">Call +1 (240) BNB-HOST</a>
+        <a href="#book" class="hover:text-slate-900 underline underline-offset-4">Book a discovery call</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
-  <header class="fixed top-0 inset-x-0 z-50">
-    <div class="glass border-b border-white/10">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-        <a href="#home" class="flex items-center gap-3">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-400 text-slate-900 font-bold">B</span>
-          <span class="text-sm font-semibold tracking-wide">BnB CoHost · DMV</span>
+  <header class="sticky top-0 z-50">
+    <div class="glass border-b border-slate-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="index.html#home" class="flex items-center gap-3">
+          <img
+            src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png"
+            alt="BnB CoHost badge logo"
+            class="h-10 w-10 rounded-full ring-1 ring-slate-200 bg-white"
+          />
+          <div class="leading-tight">
+            <p class="text-sm font-semibold tracking-wide">BnB CoHost</p>
+            <p class="text-[11px] text-slate-600">DMV · Co-Hosting & Operations</p>
+          </div>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#services" class="hover:text-emerald-400">Services</a>
-          <a href="#process" class="hover:text-emerald-400">How it works</a>
-          <a href="#faq" class="hover:text-emerald-400">FAQ</a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm text-slate-700">
+          <a href="about-bnb-cohost.html" class="hover:text-slate-900">About Us</a>
+          <a href="#services" class="hover:text-slate-900">Services</a>
+          <a href="#differentiators" class="hover:text-slate-900">Why Us</a>
+          <a href="#process" class="hover:text-slate-900">How It Works</a>
+          <a href="#faq" class="hover:text-slate-900">FAQ</a>
         </nav>
+
         <div class="flex items-center gap-2">
-          <a href="tel:+12402624678" class="hidden sm:inline-flex rounded-xl bg-emerald-400 px-3 py-2 text-slate-900 font-semibold">Call +1 (240) BNB-HOST</a>
-          <a href="#book" class="inline-flex rounded-xl border border-emerald-400/60 px-3 py-2 font-semibold hover:bg-emerald-400/10">Book Call</a>
+          <a href="tel:+12402624678"
+             class="hidden sm:inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50">
+            Call
+          </a>
+          <a href="#book"
+             class="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">
+            Book Call
+          </a>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative pt-28 md:pt-32 pb-16 md:pb-24 overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,.12),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,.15),transparent_35%)]"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-          Hands-Off Hosting for <span class="text-emerald-400">Maryland, DC & Virginia</span> Owners
-        </h1>
-        <p class="mt-4 text-slate-300 text-lg max-w-xl">
-          We manage your <strong>short-term and mid-term rentals</strong> end-to-end with the goal of protecting the guest experience and reducing your day-to-day workload.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#book" class="inline-flex items-center justify-center rounded-2xl bg-emerald-400 px-5 py-3 font-semibold text-slate-900 shadow hover:opacity-95">Schedule a Discovery Call</a>
-          <a href="tel:+12402624678" class="inline-flex items-center justify-center rounded-2xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/5">Call +1 (240) BNB-HOST</a>
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-noise"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-12 md:pb-16">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-600"></span>
+            Calm, structured co-hosting — built for owners who value ease and excellence
+          </div>
+
+          <h1 class="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-slate-900">
+            Hands-off hosting, without losing control of your asset.
+          </h1>
+
+          <p class="mt-4 text-lg text-slate-700 max-w-2xl">
+            We run the day-to-day: guest communication, turnovers, pricing strategy, and vendor coordination —
+            so your short-term or mid-term rental performs consistently across Maryland, DC, and Virginia.
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="#book"
+               class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white shadow-sm hover:bg-emerald-700">
+              Schedule a Discovery Call
+            </a>
+            <a href="tel:+12402624678"
+               class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-slate-50">
+              Call +1 (240) BNB-HOST
+            </a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">
+              <p class="text-xs text-slate-600">Guest Experience</p>
+              <p class="mt-1 text-sm font-semibold">White-glove comms</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">
+              <p class="text-xs text-slate-600">Operations</p>
+              <p class="mt-1 text-sm font-semibold">Turnovers & vendors</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">
+              <p class="text-xs text-slate-600">Revenue</p>
+              <p class="mt-1 text-sm font-semibold">Pricing strategy</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">
+              <p class="text-xs text-slate-600">Visibility</p>
+              <p class="mt-1 text-sm font-semibold">Clear reporting</p>
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-500">
+            Platforms supported: Airbnb · Vrbo · Booking.com (and multi-channel tools as needed).
+          </p>
         </div>
-        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 opacity-90">
-          <span class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs">Airbnb</span>
-          <span class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs">Vrbo</span>
-          <span class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs">Booking.com</span>
-          <span class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs">Hostaway</span>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-200">
+              <p class="text-sm font-semibold">Fast Fit Check</p>
+              <p class="mt-1 text-sm text-slate-600">
+                If you want an operator who runs your property with intention — you’re in the right place.
+              </p>
+            </div>
+
+            <div class="p-6 space-y-3 text-sm text-slate-700">
+              <div class="flex gap-3">
+                <span class="mt-0.5 h-5 w-5 rounded-full bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center text-emerald-700">✓</span>
+                <p><strong>Established listing</strong> or ready-to-launch property</p>
+              </div>
+              <div class="flex gap-3">
+                <span class="mt-0.5 h-5 w-5 rounded-full bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center text-emerald-700">✓</span>
+                <p>Owner values <strong>professional standards</strong> and calm execution</p>
+              </div>
+              <div class="flex gap-3">
+                <span class="mt-0.5 h-5 w-5 rounded-full bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center text-emerald-700">✓</span>
+                <p>Focus on <strong>sustainable performance</strong>, not quick hacks</p>
+              </div>
+              <div class="pt-2">
+                <a href="about-bnb-cohost.html"
+                   class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-50">
+                  Learn about Marie & the approach
+                </a>
+              </div>
+            </div>
+
+            <div class="p-6 bg-slate-50 border-t border-slate-200">
+              <p class="text-xs text-slate-600">
+                Prefer phone? Call <a class="font-semibold underline underline-offset-4" href="tel:+12402624678">+1 (240) BNB-HOST</a>
+              </p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Core Services -->
-  <section id="services" class="py-12 md:py-20 border-t border-white/10 bg-slate-900/30">
+  <!-- Services -->
+  <section id="services" class="py-14 md:py-20 border-t border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-8 flex items-end justify-between gap-4">
-        <h2 class="text-2xl md:text-4xl font-bold">Core Services</h2>
-        <a href="#book" class="hidden md:inline-flex rounded-xl bg-emerald-400 px-4 py-2 text-slate-900 font-semibold">Book Discovery Call</a>
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">Services built for consistency</h2>
+          <p class="mt-2 text-slate-700 max-w-2xl">
+            Operational precision, guest-first hospitality, and pricing strategy — delivered quietly in the background.
+          </p>
+        </div>
+        <a href="#book" class="hidden md:inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">
+          Book Discovery Call
+        </a>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8">
-        <!-- Full Service Co-Hosting -->
-        <article class="rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
-          <div class="grid md:grid-cols-5 gap-0">
-            <div class="md:col-span-2">
-              <!-- Replace this placeholder path with your real image -->
-              <img src="/images/full-service-cohosting.jpg" alt="Full-service co-hosting" class="h-56 md:h-full w-full object-cover" loading="lazy" />
-            </div>
-            <div class="md:col-span-3 p-6">
-              <h3 class="text-xl md:text-2xl font-semibold">Full Service Co-Hosting</h3>
-              <p class="mt-2 text-sm text-slate-300">A single operating system for your rental — guest experience, turnovers, and performance handled with consistent standards.</p>
-
-              <ul class="mt-4 text-sm text-slate-300 space-y-2">
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Listing setup</strong> across Airbnb + multiple platforms</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Photography / photo gallery</strong> direction and optimization</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Client experience & communications</strong> (inquiries, check-in/out, reviews)</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Price / revenue optimization</strong> (pricing strategy)</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Housekeeper / turnover management</strong></span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span><strong>Turnover management</strong> and <strong>revenue optimization</strong> included</span></li>
-              </ul>
-
-              <div class="mt-5 flex flex-wrap gap-3">
-                <a href="#book" class="inline-flex rounded-xl bg-emerald-400 px-4 py-2 text-slate-900 font-semibold">Start with a Call</a>
-                <a href="tel:+12402624678" class="inline-flex rounded-xl border border-white/15 px-4 py-2 font-semibold hover:bg-white/5">Talk to Marie</a>
+      <div class="mt-10 grid lg:grid-cols-2 gap-6">
+        <!-- Full Service -->
+        <article class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="p-7">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl md:text-2xl font-semibold">Full Service Co-Hosting</h3>
+                <p class="mt-2 text-sm text-slate-600">
+                  End-to-end operations for owners who want hands-off management with high standards.
+                </p>
               </div>
+              <div class="h-11 w-11 rounded-2xl bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
+                FS
+              </div>
+            </div>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700">
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Listing optimization</strong> and multi-platform positioning</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Guest communication</strong> from inquiry → review</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Turnover coordination</strong> (cleaning, restock, quality checks)</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Pricing strategy</strong> and revenue management</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Vendor & maintenance</strong> coordination as needed</span></li>
+            </ul>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="#book" class="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">
+                Start with a Call
+              </a>
+              <a href="tel:+12402624678" class="inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-50">
+                Call +1 (240) BNB-HOST
+              </a>
             </div>
           </div>
         </article>
 
-        <!-- Additional Services -->
-        <article class="rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
-          <div class="grid md:grid-cols-5 gap-0">
-            <div class="md:col-span-2">
-              <!-- Replace this placeholder path with your real image -->
-              <img src="/images/additional-services.jpg" alt="Additional services for hosting" class="h-56 md:h-full w-full object-cover" loading="lazy" />
-            </div>
-            <div class="md:col-span-3 p-6">
-              <h3 class="text-xl md:text-2xl font-semibold">Additional Services</h3>
-              <p class="mt-2 text-sm text-slate-300">Add-on support for owners who want deeper marketing assets or operational safeguards.</p>
-
-              <ul class="mt-4 text-sm text-slate-300 space-y-2">
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Video footage of listing</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Emergency services coordination</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Scheduled maintenance management (Monthly / Quarterly / Yearly)</span></li>
-                <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Project management and reporting</span></li>
-              </ul>
-
-              <div class="mt-5">
-                <a href="#book" class="inline-flex rounded-xl bg-emerald-400 px-4 py-2 text-slate-900 font-semibold">Discuss Add-Ons</a>
+        <!-- Add-ons -->
+        <article class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div class="p-7">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl md:text-2xl font-semibold">Add-On Support</h3>
+                <p class="mt-2 text-sm text-slate-600">
+                  Enhancements for owners who want deeper marketing assets and operational safeguards.
+                </p>
               </div>
+              <div class="h-11 w-11 rounded-2xl bg-slate-50 ring-1 ring-slate-200 flex items-center justify-center text-slate-700 font-bold">
+                +
+              </div>
+            </div>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700">
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Visual storytelling</strong> guidance and listing refinement</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Video footage</strong> for listing assets (where applicable)</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Preventative maintenance</strong> cadence (monthly/quarterly/yearly)</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Project coordination</strong> and reporting</span></li>
+              <li class="flex gap-3"><span class="text-emerald-700">•</span><span><strong>Emergency coordination</strong> with trusted vendors</span></li>
+            </ul>
+
+            <div class="mt-7">
+              <a href="#book" class="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">
+                Discuss Add-Ons
+              </a>
             </div>
           </div>
         </article>
       </div>
 
-      <p class="mt-6 text-xs text-slate-400">Image placeholders: add files to <span class="font-mono">/images/</span> or replace the image paths with your own URLs.</p>
+      <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+        <div class="md:flex items-center justify-between gap-6">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold">Not sure what you need?</h3>
+            <p class="mt-1 text-sm text-slate-700">
+              Book a discovery call. We’ll map your property, goals, and the simplest operating plan that protects the guest experience.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0 flex gap-3">
+            <a href="#book" class="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">Book Call</a>
+            <a href="about-bnb-cohost.html" class="inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-50">About Us</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- What Sets Us Apart -->
-  <section id="differentiators" class="py-14 md:py-20 border-t border-white/10 bg-slate-950">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-4xl font-bold">What Sets Us Apart</h2>
-      <p class="mt-2 text-slate-300">Selected by Airbnb. Trusted by Hosts.</p>
+  <!-- Differentiators -->
+  <section id="differentiators" class="py-14 md:py-20 border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">Why owners choose BnB CoHost</h2>
+          <p class="mt-3 text-slate-700">
+            A boutique operator with a calm, structured execution style — built from a background in complex project environments.
+          </p>
 
-      <div class="mt-6 space-y-4 text-sm text-slate-300">
-        <p>
-          Although we advertise listings across all major platforms, BnB CoHost is part of an elite group of co-hosts selected by Airbnb to participate in its sponsored <strong>CoHost Network</strong>.
-          This distinction is reserved for operators who demonstrate excellence, integrity, and deep understanding of the Airbnb ecosystem.
-        </p>
-        <p>
-          Our founder, <strong>Marie Buryak</strong>, was personally selected by Airbnb — an acknowledgment of her expertise, leadership, and impact within the hosting community.
-        </p>
+          <div class="mt-6 space-y-4">
+            <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+              <p class="text-sm font-semibold">Hospitality-first, not volume-first</p>
+              <p class="mt-1 text-sm text-slate-700">
+                We focus on consistent standards and a guest experience that feels effortless.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+              <p class="text-sm font-semibold">Operational precision</p>
+              <p class="mt-1 text-sm text-slate-700">
+                Clean turnovers, vendor coordination, and clear communication — without chaos.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+              <p class="text-sm font-semibold">Thoughtful revenue strategy</p>
+              <p class="mt-1 text-sm text-slate-700">
+                Pricing approach that supports performance while protecting the guest experience.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <h3 class="text-lg font-semibold mt-8">A Proven Leader in the Airbnb Community</h3>
-        <p><strong>Airbnb Community Leader for Over 3 Years</strong></p>
-        <p>
-          Marie has served as an Airbnb Community Leader across two states — Massachusetts and Northern Virginia — a role entrusted only to experienced hosts who consistently elevate others.
-        </p>
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl border border-slate-200 bg-[#FAFAF8] p-6 md:p-8">
+            <h3 class="text-lg md:text-xl font-semibold">A refined approach to co-hosting</h3>
+            <p class="mt-2 text-sm text-slate-700">
+              Co-hosting works best when the owner and operator are aligned on standards, responsiveness, and long-term outcomes.
+            </p>
 
-        <ul class="mt-3 text-sm text-slate-300 space-y-2">
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Host official meetups for local hosts</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Lead educational webinars and workshops</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Provide guidance on best practices, regulations, and market trends</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Advocate for responsible hosting through local policy discussions</span></li>
-        </ul>
+            <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm text-slate-700">
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <p class="font-semibold">Clear owner visibility</p>
+                <p class="mt-1 text-sm text-slate-600">You stay informed without being pulled into daily tasks.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <p class="font-semibold">Trusted vendor coordination</p>
+                <p class="mt-1 text-sm text-slate-600">Cleaners, maintenance, and support — managed with standards.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <p class="font-semibold">Guest-first communication</p>
+                <p class="mt-1 text-sm text-slate-600">Fast, calm, and professional from inquiry to review.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <p class="font-semibold">Sustainable performance</p>
+                <p class="mt-1 text-sm text-slate-600">Optimized outcomes without compromising the home.</p>
+              </div>
+            </div>
 
-        <p>
-          Her experience spans the complexities of hosting in highly regulated, high-value markets — including the DMV area, where precision, compliance, and professionalism are essential.
-        </p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="about-bnb-cohost.html" class="inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-50">
+                Read the full About page
+              </a>
+              <a href="#book" class="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">
+                Book Discovery Call
+              </a>
+            </div>
+          </div>
+        </div>
 
-        <h3 class="text-lg font-semibold mt-8">Experience That Helps Other Hosts Succeed</h3>
-        <p class="text-slate-300">(Suggested image placement here)</p>
-        <p>
-          Our expertise was forged not only by managing properties — but by helping other hosts succeed at scale. From first-time luxury listings to seasoned investors, Marie has guided hosts through:
-        </p>
-        <ul class="mt-3 text-sm text-slate-300 space-y-2">
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Market positioning for premium properties</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Regulatory compliance and risk mitigation</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Revenue optimization without compromising guest experience</span></li>
-          <li class="flex gap-2"><span class="text-emerald-400">•</span><span>Long-term hosting sustainability</span></li>
-        </ul>
       </div>
     </div>
   </section>
 
   <!-- Process -->
-  <section id="process" class="py-14 md:py-20 border-t border-white/10 bg-slate-900/30">
+  <section id="process" class="py-14 md:py-20 border-t border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-4xl font-bold">How It Works</h2>
-      <div class="mt-8 grid md:grid-cols-4 gap-6">
-        <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
-          <p class="text-sm uppercase tracking-wider text-slate-400">Step 1</p>
-          <h3 class="text-lg font-semibold">Discovery Call</h3>
-          <p class="text-sm text-slate-300 mt-2">Goals, property profile, and service fit.</p>
+      <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">How it works</h2>
+      <p class="mt-2 text-slate-700 max-w-2xl">
+        Simple, structured onboarding → consistent operations.
+      </p>
+
+      <div class="mt-10 grid md:grid-cols-4 gap-5">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <p class="text-xs uppercase tracking-wider text-slate-500">Step 1</p>
+          <h3 class="mt-1 text-lg font-semibold">Discovery Call</h3>
+          <p class="mt-2 text-sm text-slate-700">Goals, property profile, and service fit.</p>
         </div>
-        <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
-          <p class="text-sm uppercase tracking-wider text-slate-400">Step 2</p>
-          <h3 class="text-lg font-semibold">Strategy</h3>
-          <p class="text-sm text-slate-300 mt-2">Positioning, pricing approach, and operating plan.</p>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <p class="text-xs uppercase tracking-wider text-slate-500">Step 2</p>
+          <h3 class="mt-1 text-lg font-semibold">Strategy</h3>
+          <p class="mt-2 text-sm text-slate-700">Positioning, pricing approach, and operating plan.</p>
         </div>
-        <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
-          <p class="text-sm uppercase tracking-wider text-slate-400">Step 3</p>
-          <h3 class="text-lg font-semibold">Onboarding</h3>
-          <p class="text-sm text-slate-300 mt-2">Channel setup, checklists, vendor alignment, and SOPs.</p>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <p class="text-xs uppercase tracking-wider text-slate-500">Step 3</p>
+          <h3 class="mt-1 text-lg font-semibold">Onboarding</h3>
+          <p class="mt-2 text-sm text-slate-700">Checklists, vendor alignment, SOPs, channel setup.</p>
         </div>
-        <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
-          <p class="text-sm uppercase tracking-wider text-slate-400">Step 4</p>
-          <h3 class="text-lg font-semibold">Operate</h3>
-          <p class="text-sm text-slate-300 mt-2">Consistent turnovers, guest comms, and ongoing optimization.</p>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <p class="text-xs uppercase tracking-wider text-slate-500">Step 4</p>
+          <h3 class="mt-1 text-lg font-semibold">Operate</h3>
+          <p class="mt-2 text-sm text-slate-700">Turnovers, guest comms, ongoing optimization.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Booking -->
-  <section id="book" class="py-14 md:py-20 border-t border-white/10 bg-slate-950">
+  <section id="book" class="py-14 md:py-20 border-t border-slate-200 bg-white">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-4 md:p-6">
+      <div class="rounded-3xl border border-slate-200 bg-[#FAFAF8] p-4 md:p-6">
         <div class="md:flex items-center justify-between gap-6">
           <div class="max-w-xl">
-            <h2 class="text-2xl md:text-3xl font-bold">Book a Discovery Call</h2>
-            <p class="text-slate-300 mt-2">Pick a time that works. We’ll review your goals and the fastest path to professional co-hosting.</p>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Book a discovery call</h2>
+            <p class="text-slate-700 mt-2">
+              Pick a time that works. We’ll review your goals and the fastest path to calm, professional co-hosting.
+            </p>
           </div>
           <div class="mt-4 md:mt-0 flex gap-3">
-            <a href="tel:+12402624678" class="inline-flex rounded-xl border border-white/20 px-4 py-2 font-semibold hover:bg-white/5">Call Now</a>
-            <a href="#faq" class="inline-flex rounded-xl bg-emerald-400 px-4 py-2 text-slate-900 font-semibold">Read FAQ</a>
+            <a href="tel:+12402624678" class="inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 font-semibold hover:bg-slate-50">Call Now</a>
+            <a href="#faq" class="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700">Read FAQ</a>
           </div>
         </div>
+
         <div class="mt-6">
-          <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" style="width:100%;border:none;overflow:hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_1762209890340"></iframe><br>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z"
+            style="width:100%;border:none;overflow:hidden;"
+            scrolling="no"
+            id="DlyjpVTcwMliLC86mT3Z_1762209890340"></iframe><br>
           <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
         </div>
       </div>
+
+      <p class="mt-4 text-xs text-slate-500">
+        If the embed doesn’t load, call <a class="underline underline-offset-4" href="tel:+12402624678">+1 (240) BNB-HOST</a>.
+      </p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-14 md:py-20 border-t border-white/10 bg-slate-900/30">
+  <section id="faq" class="py-14 md:py-20 border-t border-slate-200">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-4xl font-bold">FAQ</h2>
+      <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">FAQ</h2>
+
       <div class="mt-8 space-y-4">
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5" open>
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5" open>
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">Who is BnB CoHost best suited for?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <p class="mt-3 text-slate-300 text-sm">We specialize in high-end, thoughtfully designed properties and work best with owners who value professionalism, transparency, and long-term performance over short-term gains.</p>
+          <p class="mt-3 text-slate-700 text-sm">
+            We’re best for owners who value professionalism, transparency, and long-term performance — and who want a calm operator managing the details.
+          </p>
         </details>
 
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">What makes BnB CoHost different from traditional property managers?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <div class="mt-3 text-slate-300 text-sm space-y-2">
+          <div class="mt-3 text-slate-700 text-sm space-y-2">
             <p>We don’t operate on volume. We curate.</p>
-            <p>Our approach blends Airbnb insider knowledge, hands-on operational excellence, and a hospitality-first mindset—delivering results while protecting your asset and brand.</p>
+            <p>
+              Our approach blends hands-on operational excellence with a hospitality-first mindset—delivering results while protecting your asset and brand.
+            </p>
           </div>
         </details>
 
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">Are you familiar with local regulations?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <p class="mt-3 text-slate-300 text-sm">Yes. Regulatory compliance is a cornerstone of our service. With experience in Massachusetts and Northern Virginia, we help owners confidently navigate licensing, zoning, tax obligations, and evolving short-term rental policies—particularly in the DMV region.</p>
+          <p class="mt-3 text-slate-700 text-sm">
+            Yes. Compliance is a cornerstone of our service. We help owners navigate licensing, zoning, tax obligations, and evolving STR policies across the DMV region.
+          </p>
         </details>
 
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">Do you only manage Airbnb listings?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <p class="mt-3 text-slate-300 text-sm">While Airbnb is our primary platform and area of deep expertise, we take a strategic, multi-platform view when appropriate—always prioritizing where your property performs best.</p>
+          <p class="mt-3 text-slate-700 text-sm">
+            Airbnb is our primary platform, but we take a strategic multi-platform approach when appropriate — prioritizing where your property performs best.
+          </p>
         </details>
 
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">How involved do I need to be as an owner?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <p class="mt-3 text-slate-300 text-sm">As involved as you want to be. Some owners prefer full-service, hands-off management. Others enjoy visibility and collaboration. We tailor our approach to your preferences—without compromising standards.</p>
+          <p class="mt-3 text-slate-700 text-sm">
+            As involved as you want to be. We tailor visibility and collaboration while keeping standards consistent.
+          </p>
         </details>
 
-        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
             <span class="font-semibold">How do you maintain a luxury guest experience?</span>
-            <span class="transition group-open:rotate-180">▾</span>
+            <span class="transition group-open:rotate-180 text-slate-500">▾</span>
           </summary>
-          <p class="mt-3 text-slate-300 text-sm">Through intentional design, proactive communication, vetted vendor partnerships, and operational precision. Luxury is not about excess—it’s about consistency, discretion, and care.</p>
+          <p class="mt-3 text-slate-700 text-sm">
+            Through proactive communication, vetted vendor partnerships, quality checks, and operational precision. Luxury is consistency, discretion, and care.
+          </p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 bg-slate-950">
+  <footer class="border-t border-slate-200 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8">
       <div>
-        <h3 class="font-semibold">BnB CoHost</h3>
-        <p class="text-sm text-slate-300 mt-2">Co-hosting for short-term and mid-term rentals across Maryland, DC, and Virginia. Founder: Marie Buryak.</p>
+        <div class="flex items-center gap-3">
+          <img
+            src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png"
+            alt="BnB CoHost badge logo"
+            class="h-10 w-10 rounded-full ring-1 ring-slate-200 bg-white"
+          />
+          <div>
+            <h3 class="font-semibold">BnB CoHost</h3>
+            <p class="text-xs text-slate-600">Co-hosting · Operations · Revenue Strategy</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-700 mt-3">
+          Boutique co-hosting for short-term and mid-term rentals across Maryland, DC, and Virginia.
+        </p>
       </div>
+
       <div>
         <h4 class="font-semibold">Contact</h4>
-        <ul class="mt-2 text-sm text-slate-300 space-y-1">
-          <li>Phone: <a class="underline" href="tel:+12402624678">+1 (240) BNB-HOST</a></li>
-          <li>Email: <a class="underline" href="mailto:hello@bnbcohost.link">hello@bnbcohost.link</a></li>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1">
+          <li>Phone: <a class="underline underline-offset-4" href="tel:+12402624678">+1 (240) BNB-HOST</a></li>
+          <li>Email: <a class="underline underline-offset-4" href="mailto:hello@bnbcohost.link">hello@bnbcohost.link</a></li>
           <li>Service Area: Maryland · DC · Virginia</li>
         </ul>
       </div>
+
       <div>
         <h4 class="font-semibold">Quick Links</h4>
-        <ul class="mt-2 text-sm text-slate-300 space-y-1">
-          <li><a class="underline" href="#services">Services</a></li>
-          <li><a class="underline" href="#process">How it works</a></li>
-          <li><a class="underline" href="#book">Book a call</a></li>
-          <li><a class="underline" href="#faq">FAQ</a></li>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1">
+          <li><a class="underline underline-offset-4" href="about-bnb-cohost.html">About Us</a></li>
+          <li><a class="underline underline-offset-4" href="#services">Services</a></li>
+          <li><a class="underline underline-offset-4" href="#process">How it works</a></li>
+          <li><a class="underline underline-offset-4" href="#book">Book a call</a></li>
+          <li><a class="underline underline-offset-4" href="#faq">FAQ</a></li>
         </ul>
       </div>
     </div>
-    <div class="text-center text-xs text-slate-500 py-6">
+
+    <div class="text-center text-xs text-slate-500 py-6 border-t border-slate-200">
       © <span id="y"></span> BnB CoHost. All rights reserved.
-      <span class="text-slate-400">Powered by <a href="https://chatbotfarm.ai" class="underline hover:text-emerald-400">ChatbotFarm.ai</a></span>
+      <span class="text-slate-400">Powered by <a href="https://chatbotfarm.ai" class="underline underline-offset-4 hover:text-emerald-700">ChatbotFarm.ai</a></span>
     </div>
   </footer>
 
