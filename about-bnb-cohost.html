@@ -15,7 +15,6 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    .glass { backdrop-filter: saturate(160%) blur(10px); background: rgba(255,255,255,.78); }
     .bg-noise {
       background-image:
         radial-gradient(1200px 600px at 20% 0%, rgba(16,185,129,.10), transparent 55%),
@@ -26,37 +25,37 @@
 
 <body class="bg-[#FAFAF8] text-slate-900 antialiased">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50">
-    <div class="glass border-b border-slate-200">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="index.html#home" class="flex items-center gap-3">
+  <!-- Header (NOT sticky) -->
+  <header class="relative z-50 bg-white border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="h-24 flex items-center justify-between">
+        <a href="index.html#home" class="flex items-center gap-5">
           <img
             src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png"
             alt="BnB CoHost badge logo"
-            class="h-10 w-10 rounded-full ring-1 ring-slate-200 bg-white"
+            class="h-20 w-20 rounded-full bg-white ring-2 ring-slate-200 shadow-sm"
           />
           <div class="leading-tight">
-            <p class="text-sm font-semibold tracking-wide">BnB CoHost</p>
-            <p class="text-[11px] text-slate-600">DMV · Co-Hosting & Operations</p>
+            <p class="text-xl font-semibold tracking-tight text-slate-900">BnB CoHost</p>
+            <p class="text-base text-slate-600">DMV · Co-Hosting &amp; Operations</p>
           </div>
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 text-sm text-slate-700">
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-700">
+          <a href="about-bnb-cohost.html" class="text-slate-900 font-semibold">About Us</a>
           <a href="index.html#services" class="hover:text-slate-900">Services</a>
           <a href="index.html#differentiators" class="hover:text-slate-900">Why Us</a>
           <a href="index.html#process" class="hover:text-slate-900">How It Works</a>
           <a href="index.html#faq" class="hover:text-slate-900">FAQ</a>
-          <a href="about-bnb-cohost.html" class="text-slate-900 font-semibold">About Us</a>
         </nav>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <a href="tel:+12402624678"
-             class="hidden sm:inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50">
+             class="hidden sm:inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold hover:bg-slate-50">
             Call
           </a>
           <a href="index.html#book"
-             class="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">
+             class="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700">
             Book Call
           </a>
         </div>
@@ -67,7 +66,8 @@
   <!-- About Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-noise"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-12 md:pb-16">
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-12 md:pb-16">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
@@ -75,7 +75,7 @@
             Graceful hosting. Thoughtful strategy. Lasting results.
           </div>
 
-          <h1 class="mt-4 text-3xl md:text-5xl font-semibold tracking-tight">About BNB CoHost</h1>
+          <h1 class="mt-5 text-3xl md:text-6xl font-semibold tracking-tight">About BNB CoHost</h1>
 
           <p class="mt-4 text-lg text-slate-700">
             BNB CoHost is a boutique, full-service co-hosting and property management partner created for owners who want
@@ -89,11 +89,11 @@
 
           <div class="mt-7 flex flex-wrap gap-3">
             <a href="index.html#book"
-               class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white shadow-sm hover:bg-emerald-700">
+               class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-7 py-4 font-semibold text-white shadow-sm hover:bg-emerald-700">
               Book a Discovery Call
             </a>
             <a href="tel:+12402624678"
-               class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold hover:bg-slate-50">
+               class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-7 py-4 font-semibold hover:bg-slate-50">
               Call +1 (240) BNB-HOST
             </a>
           </div>
@@ -103,8 +103,8 @@
           <div class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
             <img
               src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135df767577ad2b4d3fee.jpg"
-              alt="BnB CoHost owner portrait"
-              class="w-full h-[520px] object-cover"
+              alt="BnB CoHost owner image"
+              class="w-full h-[560px] object-cover"
               loading="lazy"
             />
             <div class="p-6 border-t border-slate-200 bg-slate-50">
@@ -114,9 +114,7 @@
               </p>
             </div>
           </div>
-          <p class="mt-3 text-xs text-slate-500">
-            Image: 800 × 1200 px (as provided).
-          </p>
+          <p class="mt-3 text-xs text-slate-500">Image: 800 × 1200 px (as provided).</p>
         </div>
       </div>
     </div>
@@ -138,6 +136,19 @@
         <p class="mt-4 text-slate-700">
           At BNB CoHost, we believe every property has its own rhythm and story. Our role is to honor that while quietly optimizing behind the scenes.
         </p>
+
+        <p class="mt-4 text-slate-700">
+          We work as a true partner, aligning closely with our clients to protect their investment, elevate their property, and create sustainable growth.
+          Our relationships are built on trust, transparency, and shared success.
+        </p>
+
+        <p class="mt-4 text-slate-700">
+          BNB CoHost exists so you can step away from the day-to-day, knowing your home — and your income — are being managed with care.
+        </p>
+
+        <p class="mt-4 font-semibold text-slate-900">
+          Graceful hosting. Thoughtful strategy. Lasting results.
+        </p>
       </div>
     </div>
   </section>
@@ -156,33 +167,33 @@
         <div class="lg:col-span-7">
           <div class="grid sm:grid-cols-2 gap-5">
             <div class="rounded-3xl border border-slate-200 bg-white p-6">
-              <p class="font-semibold">Personalized revenue management</p>
-              <p class="mt-2 text-sm text-slate-700">Pricing strategy shaped around performance and sustainability.</p>
+              <p class="font-semibold">Personalized revenue management and pricing strategy</p>
+              <p class="mt-2 text-sm text-slate-700">A measured approach shaped around performance and sustainability.</p>
             </div>
             <div class="rounded-3xl border border-slate-200 bg-white p-6">
-              <p class="font-semibold">Curated visual storytelling</p>
-              <p class="mt-2 text-sm text-slate-700">Listing refinement that reflects the home’s character and market fit.</p>
+              <p class="font-semibold">Curated visual storytelling and listing refinement</p>
+              <p class="mt-2 text-sm text-slate-700">Clean positioning that reflects the home and the market.</p>
             </div>
             <div class="rounded-3xl border border-slate-200 bg-white p-6">
-              <p class="font-semibold">White-glove guest communication</p>
-              <p class="mt-2 text-sm text-slate-700">Attentive, calm messaging from inquiry through review.</p>
+              <p class="font-semibold">Attentive, white-glove guest communication</p>
+              <p class="mt-2 text-sm text-slate-700">Calm messaging from inquiry through review.</p>
             </div>
             <div class="rounded-3xl border border-slate-200 bg-white p-6">
-              <p class="font-semibold">Trusted coordination</p>
-              <p class="mt-2 text-sm text-slate-700">Cleaners, vendors, and maintenance aligned to consistent standards.</p>
+              <p class="font-semibold">Trusted coordination of cleaners, vendors, and maintenance</p>
+              <p class="mt-2 text-sm text-slate-700">Consistent standards across every turnover and touchpoint.</p>
             </div>
             <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:col-span-2">
               <p class="font-semibold">Ongoing oversight</p>
               <p class="mt-2 text-sm text-slate-700">
-                We keep each home beautifully guest-ready — so you can step away from the day-to-day knowing your home (and your income) are being managed with care.
+                We ensure each home remains beautifully guest-ready while quietly optimizing behind the scenes.
               </p>
             </div>
           </div>
 
           <div class="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-            <p class="text-slate-900 font-semibold">We work as a true partner.</p>
+            <p class="text-slate-900 font-semibold">A true partner for your property.</p>
             <p class="mt-2 text-sm text-slate-700">
-              Our relationships are built on trust, transparency, and shared success — aligning closely with clients to protect the investment, elevate the property, and create sustainable growth.
+              We align closely with clients to protect the investment, elevate the property, and create sustainable growth.
             </p>
           </div>
         </div>
@@ -194,9 +205,7 @@
   <section class="py-14 md:py-20 border-t border-slate-200 bg-white">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">Soft luxury tagline options</h2>
-      <p class="mt-3 text-slate-700">
-        These pair well with a white or neutral portrait.
-      </p>
+      <p class="mt-3 text-slate-700">These pair well with a white or neutral portrait.</p>
 
       <div class="mt-8 grid gap-4">
         <div class="rounded-2xl border border-slate-200 bg-[#FAFAF8] p-5">
@@ -215,11 +224,11 @@
 
       <div class="mt-10 flex flex-wrap gap-3">
         <a href="index.html#book"
-           class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white shadow-sm hover:bg-emerald-700">
+           class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-7 py-4 font-semibold text-white shadow-sm hover:bg-emerald-700">
           Book a Discovery Call
         </a>
         <a href="index.html"
-           class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold hover:bg-slate-50">
+           class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-7 py-4 font-semibold hover:bg-slate-50">
           Back to Home
         </a>
       </div>
@@ -234,7 +243,7 @@
           <img
             src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png"
             alt="BnB CoHost badge logo"
-            class="h-10 w-10 rounded-full ring-1 ring-slate-200 bg-white"
+            class="h-12 w-12 rounded-full ring-1 ring-slate-200 bg-white"
           />
           <div>
             <h3 class="font-semibold">BnB CoHost</h3>
