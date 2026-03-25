@@ -51,7 +51,18 @@
     .sec-title{font-size:clamp(26px,3.5vw,44px);font-weight:700;}
     .sec-title span{color:var(--coral2);}
     .safe-top{padding-top:env(safe-area-inset-top);}
-    .glass-nav{backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);background:var(--nav)!important;border-bottom:1px solid var(--line);}
+    .site-nav{background:rgba(8,13,26,.96)!important;border-bottom:1px solid var(--line);}
+    .ham-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:transparent!important;flex-shrink:0;}
+    .ham-btn span{display:block;height:2px;border-radius:2px;background:var(--text);transition:transform .25s,opacity .25s,width .25s;}
+    .ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .ham-btn.open span:nth-child(2){opacity:0;width:0;}
+    .ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;border-top:1px solid var(--line);padding:16px;}
+    .mobile-menu.open{display:block;}
+    .mobile-menu a{display:block;padding:12px 8px;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;border-radius:10px;transition:background .15s,color .15s;}
+    .mobile-menu a:hover{background:rgba(255,255,255,.05)!important;color:var(--text);}
+    .mobile-menu a.active-link{color:var(--coral);}
+    .mobile-menu .mob-cta{display:block;margin-top:10px;text-align:center;}
     .btn-p{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--coral);color:#1a0d08;font-weight:700;font-size:14px;padding:13px 26px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;}
     .btn-p:hover{background:var(--coral2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(244,132,95,.25);}
     .btn-g{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:transparent!important;color:var(--text);font-weight:600;font-size:14px;padding:12px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.18);text-decoration:none;transition:border-color .2s,background .2s;}
@@ -81,29 +92,53 @@
 <body>
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-50 safe-top">
-  <div class="glass-nav">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+<!-- NAV (non-sticky, hamburger on mobile) -->
+<header>
+  <div class="site-nav">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4" style="min-height:130px;">
       <a href="/index" class="flex items-center no-underline flex-shrink-0" aria-label="BnB CoHost home">
-        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 sm:h-12 w-auto" />
+        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" style="height:120px;width:auto;" />
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--muted);">
-        <a href="/index" class="no-underline hover:text-white" style="transition:color .2s;">Home</a>
-        <a href="/services" class="no-underline" style="color:var(--coral);">Services</a>
-        <a href="/about-bnb-cohost" class="no-underline hover:text-white" style="transition:color .2s;">About</a>
-        <a href="/co-hosting-coaching" class="no-underline hover:text-white" style="transition:color .2s;">Coaching</a>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/index" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">Home</a>
+        <a href="/services" class="no-underline hover:text-white" style="color:var(--coral);">Services</a>
+        <a href="/about-bnb-cohost" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">About</a>
+        <a href="/co-hosting-coaching" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">Coaching</a>
       </nav>
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <a href="tel:+12402624678" class="hidden sm:inline-flex btn-p btn-sm">+1 (240) BNB-HOST</a>
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center gap-2 flex-shrink-0">
+        <a href="tel:+12402624678" class="btn-p btn-sm">+1 (240) BNB-HOST</a>
         <a href="#book" class="btn-g btn-sm">Book a Call</a>
       </div>
+      <!-- Mobile: Book + hamburger -->
+      <div class="flex md:hidden items-center gap-2">
+        <a href="#book" class="btn-p btn-sm">Book a Call</a>
+        <button class="ham-btn" id="ham-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/index" class="no-underline">Home</a>
+      <a href="/services" class="no-underline active-link">Services</a>
+      <a href="/about-bnb-cohost" class="no-underline">About</a>
+      <a href="/co-hosting-coaching" class="no-underline">Coaching</a>
+      <a href="tel:+12402624678" class="mob-cta btn-p" style="text-decoration:none;">📞 +1 (240) BNB-HOST</a>
     </div>
   </div>
 </header>
+<script>
+  function toggleMenu() {
+    document.getElementById('ham-btn').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+</script>
 
 
 <!-- HERO -->
-<section style="padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:clamp(32px,5vw,60px);">
+<section style="padding-top:clamp(24px,4vw,48px);padding-bottom:clamp(32px,5vw,60px);">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <p class="eyebrow mb-5">Services</p>
