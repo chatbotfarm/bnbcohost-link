@@ -28,6 +28,7 @@
     :root{
       --bg0:#080d1a;--bg1:#0a1020;--bg2:#0d1428;
       --nav:rgba(8,13,26,.9);
+      --nav-h:64px;
       --text:#edf2fb;--muted:#8fa3be;
       --line:rgba(255,255,255,.09);
       --panel:rgba(255,255,255,.04);
@@ -53,6 +54,8 @@
     h1,h2,h3,h4{line-height:1.15;font-weight:700;letter-spacing:-.02em;}
     /* ── Section rhythm ── */
     section{padding-block:clamp(56px,8vw,92px);}
+    /* clear the fixed nav when jumping to an in-page anchor */
+    section[id]{scroll-margin-top:calc(var(--nav-h) + env(safe-area-inset-top) + 16px);}
     .section-head{max-width:760px;margin:0 auto 36px;text-align:center;}
     .section-head p{color:var(--muted);margin-top:10px;font-size:15px;}
     .section-head .eyebrow{justify-content:center;}
@@ -63,15 +66,20 @@
     .display span{color:var(--coral2);}
     .sec-title{font-size:clamp(26px,3.5vw,44px);font-weight:700;}
     .sec-title span{color:var(--coral2);}
-    .safe-top{padding-top:env(safe-area-inset-top);}
     /* ── Nav ── */
-    .site-nav{background:rgba(8,13,26,.96)!important;border-bottom:1px solid var(--line);}
+    /* safe-area padding lives on the bar itself so the notch strip stays opaque */
+    .glass-nav{
+      backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+      background:var(--nav)!important;border-bottom:1px solid var(--line);
+      padding-top:env(safe-area-inset-top);
+    }
+    .nav-bar{height:var(--nav-h);}
     .ham-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:transparent!important;flex-shrink:0;}
     .ham-btn span{display:block;height:2px;border-radius:2px;background:var(--text);transition:transform .25s,opacity .25s,width .25s;}
     .ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .ham-btn.open span:nth-child(2){opacity:0;width:0;}
     .ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .mobile-menu{display:none;border-top:1px solid var(--line);padding:16px;}
+    .mobile-menu{display:none;border-top:1px solid var(--line);padding:16px;max-height:calc(100vh - var(--nav-h) - 32px);overflow-y:auto;}
     .mobile-menu.open{display:block;}
     .mobile-menu a{display:block;padding:12px 8px;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;border-radius:10px;transition:background .15s,color .15s;}
     .mobile-menu a:hover{background:rgba(255,255,255,.05)!important;color:var(--text);}
@@ -106,14 +114,18 @@
     .stat-n{font-size:40px;font-weight:800;color:var(--coral2);line-height:1;letter-spacing:-.03em;}
     /* ── Steps ── */
     .icon-tile{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
-    .step-c{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:2px solid var(--coral-line);font-size:16px;font-weight:800;color:var(--coral);}
     /* ── Embed ── */
     .embed-wrap{width:100%;}
     .embed-wrap iframe{width:100%!important;max-width:100%!important;display:block!important;border:0!important;overflow:hidden!important;background:transparent!important;}
     /* ── Scroll reveal ── */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
     .reveal.in{opacity:1;transform:none;}
-    .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
+    .d1{transition-delay:.08s;} .d2{transition-delay:.16s;}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .reveal{opacity:1;transform:none;transition:none;}
+      .ba-wrap:hover img{transform:none;}
+    }
     @media(max-width:640px){
       .btn-stk{flex-direction:column;}
       .btn-stk a{width:100%;text-align:center;}
@@ -124,12 +136,12 @@
   </style>
 </head>
 <body>
-<!-- NAV (non-sticky, hamburger on mobile) -->
-<header>
-  <div class="site-nav">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4" style="min-height:130px;">
+<!-- NAV (fixed, hamburger on mobile) -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <div class="glass-nav">
+    <div class="nav-bar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
       <a href="/index" class="flex items-center no-underline flex-shrink-0" aria-label="BnB CoHost home">
-        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" style="height:120px;width:auto;" />
+        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 sm:h-12 w-auto" />
       </a>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -146,7 +158,7 @@
       <!-- Mobile: Book + hamburger -->
       <div class="flex md:hidden items-center gap-2">
         <a href="#book" class="btn-p btn-sm">Book a Call</a>
-        <button class="ham-btn" id="ham-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+        <button class="ham-btn" id="ham-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -163,13 +175,16 @@
 </header>
 <script>
   function toggleMenu() {
-    document.getElementById('ham-btn').classList.toggle('open');
-    document.getElementById('mobile-menu').classList.toggle('open');
+    var btn = document.getElementById('ham-btn');
+    var menu = document.getElementById('mobile-menu');
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 </script>
 
 <!-- ═══ HERO ═══ -->
-<section style="padding-top:clamp(24px,4vw,48px);padding-bottom:clamp(40px,6vw,72px);position:relative;overflow:hidden;">
+<section style="padding-top:calc(var(--nav-h) + env(safe-area-inset-top) + clamp(28px,5vw,56px));padding-bottom:clamp(40px,6vw,72px);position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
     <div style="position:absolute;width:700px;height:500px;top:-150px;left:-100px;background:radial-gradient(ellipse,rgba(244,132,95,.08),transparent 65%);"></div>
     <div style="position:absolute;width:600px;height:400px;top:-80px;right:-50px;background:radial-gradient(ellipse,rgba(59,100,220,.09),transparent 65%);"></div>
@@ -208,6 +223,27 @@
       <div><div class="stat-n">237+</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Guest Reviews</div></div>
       <div><div class="stat-n">6+</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Years Operating STRs</div></div>
       <div><div class="stat-n">STR+MTR</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Rental Types Managed</div></div>
+    </div>
+
+    <!-- Property owner testimonials -->
+    <div class="section-head reveal">
+      <p class="eyebrow mb-3">Real owner feedback</p>
+      <h2 class="sec-title">Trusted by <span>property owners</span></h2>
+      <p>Real feedback from short-term rental owners we've supported.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 mb-16">
+      <div class="card-ft p-7 reveal">
+        <div style="color:#f0c060;font-size:14px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+        <p class="text-sm leading-relaxed italic mb-5" style="color:var(--muted);">"Marie made launching my first Airbnb feel manageable. She was patient, reliable, highly professional, and genuinely supportive throughout every step of the process."</p>
+        <p class="text-xs font-semibold">— Maryland STR Property Owner</p>
+      </div>
+
+      <div class="card-ft p-7 reveal d1">
+        <div style="color:#f0c060;font-size:14px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+        <p class="text-sm leading-relaxed italic mb-5" style="color:var(--muted);">"Working with Marie has been a remarkable experience, especially as someone launching their first Airbnb. She has been patient, reliable, highly professional, and genuinely supportive throughout every step of the process."</p>
+        <p class="text-xs font-semibold">— Massachusetts STR Property Owner</p>
+      </div>
     </div>
 
     <!-- Reviews -->
@@ -268,7 +304,7 @@
     <div class="grid md:grid-cols-3 gap-5">
       <div class="card p-7 reveal">
         <div class="mb-4 flex items-center gap-3">
-          <div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📞</div>
+          <div class="icon-tile">📞</div>
           <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Step 1</div>
         </div>
         <h3 class="text-base font-bold mb-2">Discovery Call</h3>
@@ -276,15 +312,15 @@
       </div>
       <div class="card p-7 reveal d1">
         <div class="mb-4 flex items-center gap-3">
-          <div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🔧</div>
+          <div class="icon-tile">🔧</div>
           <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Step 2</div>
         </div>
-        <h3 class="text-base font-bold mb-2">We Onboard & Set Up</h3>
+        <h3 class="text-base font-bold mb-2">We Onboard &amp; Set Up</h3>
         <p class="text-sm" style="color:var(--muted);line-height:1.65;">We coordinate cleaners, set turnover standards, and get your property into a reliable operating rhythm.</p>
       </div>
       <div class="card p-7 reveal d2">
         <div class="mb-4 flex items-center gap-3">
-          <div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">✅</div>
+          <div class="icon-tile">✅</div>
           <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Step 3</div>
         </div>
         <h3 class="text-base font-bold mb-2">You Collect. We Operate.</h3>
@@ -310,7 +346,7 @@
       <div class="grid md:grid-cols-2 gap-4">
         <div>
           <div class="ba-wrap"><span class="ba-lbl lbl-b">Before</span>
-            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e3b539e5988893c7d5ce.webp" alt="Bedroom before — dated blue walls, wall-to-wall carpet" loading="lazy" /></div>
+            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e3b539e5988893c7d5ce.webp" alt="Bedroom before — dated blue walls, wall-to-wall carpet" loading="lazy" decoding="async" /></div>
           <div class="flex flex-wrap gap-2 mt-3">
             <span class="chip" style="font-size:11px;">Dated decor</span>
             <span class="chip" style="font-size:11px;">Carpet flooring</span>
@@ -318,7 +354,7 @@
         </div>
         <div>
           <div class="ba-wrap"><span class="ba-lbl lbl-a">After</span>
-            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e49a3b3a58ed3c1480f6.jpg" alt="Bedroom after — botanical wallpaper, white iron bed, gold vanity mirror, hardwood floors" loading="lazy" /></div>
+            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/6a70bdaa497cd89d24c9b83e.png?v=20260804" alt="Bedroom after — restyled guest bedroom staged for listing photos" loading="lazy" decoding="async" /></div>
           <div class="flex flex-wrap gap-2 mt-3">
             <span class="chip" style="font-size:11px;color:var(--coral2);border-color:var(--coral-line);">✓ Listing-photo ready</span>
             <span class="chip" style="font-size:11px;color:var(--coral2);border-color:var(--coral-line);">✓ Guest-favorite aesthetic</span>
@@ -332,7 +368,7 @@
       <div class="grid md:grid-cols-2 gap-4">
         <div>
           <div class="ba-wrap"><span class="ba-lbl lbl-b">Before</span>
-            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e3b53b3a58c2b3147127.webp" alt="Bathroom before — builder-grade tile, burlap curtains" loading="lazy" /></div>
+            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e3b53b3a58c2b3147127.webp" alt="Bathroom before — builder-grade tile, burlap curtains" loading="lazy" decoding="async" /></div>
           <div class="flex flex-wrap gap-2 mt-3">
             <span class="chip" style="font-size:11px;">Builder-grade</span>
             <span class="chip" style="font-size:11px;">Hard to deep-clean</span>
@@ -340,7 +376,7 @@
         </div>
         <div>
           <div class="ba-wrap"><span class="ba-lbl lbl-a">After</span>
-            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e49a8e6bfb14bd711d37.jpg" alt="Bathroom after — black geometric tile, glass shower enclosure, pedestal sink" loading="lazy" /></div>
+            <img src="https://assets.cdn.filesafe.space/VlsfWgfLbf4xLfQJOYty/media/69c1e49a8e6bfb14bd711d37.jpg" alt="Bathroom after — black geometric tile, glass shower enclosure, pedestal sink" loading="lazy" decoding="async" /></div>
           <div class="flex flex-wrap gap-2 mt-3">
             <span class="chip" style="font-size:11px;color:var(--coral2);border-color:var(--coral-line);">✓ Geometric tile + glass shower</span>
             <span class="chip" style="font-size:11px;color:var(--coral2);border-color:var(--coral-line);">✓ Easy-clean, guest-centric</span>
@@ -380,7 +416,7 @@
           <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Guidance</div>
         </div>
         <div class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#f0c060;">Starter</div>
-        <h3 class="text-base font-bold mb-2">Launch & Compliance Guidance</h3>
+        <h3 class="text-base font-bold mb-2">Launch &amp; Compliance Guidance</h3>
         <p class="text-sm" style="color:var(--muted);">Licensing, setup, and a clear launch plan so you start right.</p>
         <p class="text-xs mt-3" style="color:var(--muted);opacity:.6;">New hosts</p>
       </div>
@@ -390,7 +426,7 @@
           <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Turnovers</div>
         </div>
         <div class="text-xs font-bold uppercase tracking-widest mb-3" style="color:var(--coral);">Popular</div>
-        <h3 class="text-base font-bold mb-2">Housekeeping & Turnovers</h3>
+        <h3 class="text-base font-bold mb-2">Housekeeping &amp; Turnovers</h3>
         <p class="text-sm" style="color:var(--muted);">Hotel-level cleaning, scheduling, restock &amp; reset after every stay.</p>
         <p class="text-xs mt-3" style="color:var(--muted);opacity:.6;">Most common</p>
       </div>
@@ -443,7 +479,7 @@
         </div>
       </div>
       <div class="embed-wrap">
-        <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_1762209890340"></iframe>
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" title="Book a discovery call with BnB CoHost" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_1762209890340"></iframe>
         <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
@@ -454,11 +490,11 @@
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-8 mb-10">
       <div class="md:col-span-2">
-        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 w-auto mb-4" />
+        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 w-auto mb-4" loading="lazy" decoding="async" />
         <p class="text-sm mb-5" style="color:var(--muted);max-width:300px;line-height:1.7;">Professional co-hosting for short-term and mid-term rental owners. Earn more while doing less.</p>
         <div class="flex flex-wrap gap-2">
           <a href="tel:+12402624678" class="chip no-underline" style="font-size:11px;">📞 +1 (240) BNB-HOST</a>
-          <a href="/cdn-cgi/l/email-protection#432b262f2f2c03212d21202c2b2c30376d2f2a2d28" class="chip no-underline" style="font-size:11px;">✉️ <span class="__cf_email__" data-cfemail="ff979a939390bf9d919d9c9097908c8bd193969194">[email&#160;protected]</span></a>
+          <a href="mailto:hello@bnbcohost.link" class="chip no-underline" style="font-size:11px;">✉️ hello@bnbcohost.link</a>
         </div>
       </div>
       <div>
@@ -473,16 +509,16 @@
         <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Company</h4>
         <ul class="space-y-2 text-sm" style="color:var(--muted);">
           <li><a href="/about-bnb-cohost" class="no-underline hover:text-white" style="transition:color .2s;">About Us</a></li>
-          <li><a href="https://www.airbnb.com/rooms/35617732" target="_blank" class="no-underline hover:text-white" style="transition:color .2s;">Live Listing ↗</a></li>
+          <li><a href="https://www.airbnb.com/rooms/35617732" target="_blank" rel="noopener" class="no-underline hover:text-white" style="transition:color .2s;">Live Listing ↗</a></li>
         </ul>
       </div>
     </div>
     <div style="border-top:1px solid var(--line);padding-top:24px;text-align:center;font-size:11px;color:#3e4a5e;">
-      © <span id="yr"></span> BnB CoHost. All rights reserved. · <span style="opacity:.5;">Powered by <a href="https://chatbotfarm.ai" style="color:inherit;" class="no-underline">ChatbotFarm.ai</a></span>
+      © <span id="yr"></span> BnB CoHost. All rights reserved. · <span style="opacity:.5;">Powered by <a href="https://chatbotfarm.ai" target="_blank" rel="noopener" style="color:inherit;" class="no-underline">ChatbotFarm.ai</a></span>
     </div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {

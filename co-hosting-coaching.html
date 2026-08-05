@@ -17,7 +17,7 @@
   <style>
     :root{
       --bg0:#080d1a;--bg1:#0a1020;--bg2:#0d1428;
-      --nav:rgba(8,13,26,.9);
+      --nav:rgba(8,13,26,.9);--nav-h:64px;
       --text:#edf2fb;--muted:#8fa3be;
       --line:rgba(255,255,255,.09);
       --panel:rgba(255,255,255,.04);
@@ -50,14 +50,21 @@
     .display span{color:var(--coral2);}
     .sec-title{font-size:clamp(24px,3.2vw,40px);font-weight:700;}
     .sec-title span{color:var(--coral2);}
-    .safe-top{padding-top:env(safe-area-inset-top);}
-    .site-nav{background:rgba(8,13,26,.96)!important;border-bottom:1px solid var(--line);}
+    /* ── Nav (fixed glass bar; safe-area padding sits on the bar so the notch strip stays opaque) ── */
+    .glass-nav{
+      backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+      background:var(--nav)!important;border-bottom:1px solid var(--line);
+      padding-top:env(safe-area-inset-top);
+    }
+    .nav-bar{height:var(--nav-h);}
+    /* clear the fixed nav when jumping to an in-page anchor */
+    section[id]{scroll-margin-top:calc(var(--nav-h) + env(safe-area-inset-top) + 16px);}
     .ham-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:transparent!important;flex-shrink:0;}
     .ham-btn span{display:block;height:2px;border-radius:2px;background:var(--text);transition:transform .25s,opacity .25s,width .25s;}
     .ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .ham-btn.open span:nth-child(2){opacity:0;width:0;}
     .ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .mobile-menu{display:none;border-top:1px solid var(--line);padding:16px;}
+    .mobile-menu{display:none;border-top:1px solid var(--line);padding:16px;max-height:calc(100vh - var(--nav-h) - 32px);overflow-y:auto;}
     .mobile-menu.open{display:block;}
     .mobile-menu a{display:block;padding:12px 8px;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;border-radius:10px;transition:background .15s,color .15s;}
     .mobile-menu a:hover{background:rgba(255,255,255,.05)!important;color:var(--text);}
@@ -92,11 +99,11 @@
 
 <!-- NAV -->
 <!-- NAV (non-sticky, hamburger on mobile) -->
-<header>
-  <div class="site-nav">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4" style="min-height:130px;">
+<header class="fixed top-0 inset-x-0 z-50">
+  <div class="glass-nav">
+    <div class="nav-bar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
       <a href="/index" class="flex items-center no-underline flex-shrink-0" aria-label="BnB CoHost home">
-        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" style="height:120px;width:auto;" />
+        <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 sm:h-12 w-auto" />
       </a>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -113,7 +120,7 @@
       <!-- Mobile: Book + hamburger -->
       <div class="flex md:hidden items-center gap-2">
         <a href="#book" class="btn-p btn-sm">Book Coaching</a>
-        <button class="ham-btn" id="ham-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+        <button class="ham-btn" id="ham-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -130,14 +137,17 @@
 </header>
 <script>
   function toggleMenu() {
-    document.getElementById('ham-btn').classList.toggle('open');
-    document.getElementById('mobile-menu').classList.toggle('open');
+    var btn = document.getElementById('ham-btn');
+    var menu = document.getElementById('mobile-menu');
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 </script>
 
 
 <!-- HERO -->
-<section style="padding-top:clamp(24px,4vw,48px);padding-bottom:clamp(32px,5vw,60px);">
+<section style="padding-top:calc(var(--nav-h) + env(safe-area-inset-top) + clamp(28px,5vw,56px));padding-bottom:clamp(32px,5vw,60px);">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -371,7 +381,7 @@
         </div>
       </div>
       <div class="embed-wrap">
-        <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_c3"></iframe>
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" title="Book a discovery call with BnB CoHost" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_c3"></iframe>
         <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
@@ -386,7 +396,7 @@
         <p class="text-sm mb-5" style="color:var(--muted);max-width:300px;line-height:1.7;">Co-hosting + coaching for operators building repeatable systems.</p>
         <div class="flex flex-wrap gap-2">
           <a href="tel:+12402624678" class="chip no-underline" style="font-size:11px;">📞 +1 (240) BNB-HOST</a>
-          <a href="/cdn-cgi/l/email-protection#dbb3beb7b7b49bb9b5b9b8b4b3b4a8aff5b7b2b5b0" class="chip no-underline" style="font-size:11px;">✉️ <span class="__cf_email__" data-cfemail="422a272e2e2d02202c20212d2a2d31366c2e2b2c29">[email&#160;protected]</span></a>
+          <a href="mailto:hello@bnbcohost.link" class="chip no-underline" style="font-size:11px;">✉️ hello@bnbcohost.link</a>
         </div>
       </div>
       <div>
@@ -402,7 +412,7 @@
         <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Company</h4>
         <ul class="space-y-2 text-sm" style="color:var(--muted);">
           <li><a href="/about-bnb-cohost" class="no-underline hover:text-white" style="transition:color .2s;">About Us</a></li>
-          <li><a href="https://www.airbnb.com/rooms/35617732" target="_blank" class="no-underline hover:text-white" style="transition:color .2s;">Live Listing ↗</a></li>
+          <li><a href="https://www.airbnb.com/rooms/35617732" target="_blank" rel="noopener" class="no-underline hover:text-white" style="transition:color .2s;">Live Listing ↗</a></li>
         </ul>
       </div>
     </div>
@@ -411,7 +421,7 @@
     </div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
