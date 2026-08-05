@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>BnB CoHost | Co-hosting Coaching — Build Your Co-Host Business</title>
-  <meta name="description" content="Learn to become a professional Airbnb co-host with systems that work. SOPs, pricing, vendor playbooks. Choose your coaching option and book a call." />
+  <title>BnB CoHost | About — Co-hosting Built on Systems & Transparent Operations</title>
+  <meta name="description" content="BnB CoHost helps STR and mid-term rental owners run smooth operations. Clear SOPs, transparent vendor pricing, photo-based QA, and owner-approved spending." />
   <meta name="theme-color" content="#080d1a" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="color-scheme" content="dark" />
-  <link rel="canonical" href="https://app.bnbcohost.link/co-hosting-coaching" />
+  <link rel="canonical" href="https://app.bnbcohost.link/about-bnb-cohost" />
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,9 +46,9 @@
     .section-head p{color:var(--muted);margin-top:10px;font-size:15px;}
     .section-head .eyebrow{justify-content:center;}
     .soft-break{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);opacity:.9;margin:0;}
-    .display{font-size:clamp(36px,5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;}
+    .display{font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.06;letter-spacing:-.03em;}
     .display span{color:var(--coral2);}
-    .sec-title{font-size:clamp(24px,3.2vw,40px);font-weight:700;}
+    .sec-title{font-size:clamp(26px,3.5vw,44px);font-weight:700;}
     .sec-title span{color:var(--coral2);}
     /* ── Nav (fixed glass bar; safe-area padding sits on the bar so the notch strip stays opaque) ── */
     .glass-nav{
@@ -81,45 +81,54 @@
     .card:hover{border-color:var(--coral-line);transform:translateY(-2px);}
     .card-ft{background:linear-gradient(135deg,rgba(244,132,95,.09),rgba(59,100,220,.06))!important;border:1px solid var(--coral-line);border-radius:18px;}
     .chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.11);border-radius:100px;padding:5px 13px;font-size:12px;font-weight:500;color:var(--muted);}
-    /* Offer cards */
-    .offer-card{background:var(--panel)!important;border:1px solid var(--line);border-radius:20px;padding:28px;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;}
-    .offer-card:hover{border-color:var(--coral-line);transform:translateY(-3px);}
-    .offer-featured{background:linear-gradient(160deg,rgba(244,132,95,.11),rgba(59,100,220,.07))!important;border-color:var(--coral);position:relative;}
-    .offer-label{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--coral);color:#1a0d08;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 16px;border-radius:100px;white-space:nowrap;}
+    .chip-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);flex-shrink:0;}
+    .icon-tile{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+    .stat-n{font-size:40px;font-weight:800;color:var(--coral2);line-height:1;letter-spacing:-.03em;}
+    .bnb-b{display:inline-flex;align-items:center;gap:6px;background:rgba(255,56,92,.10)!important;border:1px solid rgba(255,56,92,.22);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:.04em;color:#ff7a8a;}
+    /* Value row */
+    .value-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+    .value-row:last-child{border-bottom:none;padding-bottom:0;}
+    .value-icon{width:36px;height:36px;border-radius:10px;background:var(--coral-dim)!important;border:1px solid var(--coral-line);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
+    /* Fit grid */
+    .fit-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);}
+    .fit-item:last-child{border-bottom:none;}
+    .fit-check{color:var(--coral);font-size:13px;margin-top:2px;flex-shrink:0;}
+    /* Embed */
     .embed-wrap{width:100%;}
     .embed-wrap iframe{width:100%!important;max-width:100%!important;display:block!important;border:0!important;overflow:hidden!important;background:transparent!important;}
+    /* Reveal */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
     .reveal.in{opacity:1;transform:none;}
     .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
-    @media(max-width:640px){.btn-stk{flex-direction:column;}.btn-stk a{width:100%;text-align:center;}}
-
+    @media(max-width:640px){
+      .btn-stk{flex-direction:column;}
+      .btn-stk a{width:100%;text-align:center;}
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<!-- NAV (non-sticky, hamburger on mobile) -->
 <header class="fixed top-0 inset-x-0 z-50">
   <div class="glass-nav">
     <div class="nav-bar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
       <a href="/index" class="flex items-center no-underline flex-shrink-0" aria-label="BnB CoHost home">
         <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 sm:h-12 w-auto" />
       </a>
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="/index" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">Home</a>
-        <a href="/services" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">Services</a>
-        <a href="/about-bnb-cohost" class="no-underline hover:text-white" style="color:var(--muted);transition:color .2s;">About</a>
-        <a href="/co-hosting-coaching" class="no-underline hover:text-white" style="color:var(--coral);">Coaching</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--muted);">
+        <a href="/index" class="no-underline hover:text-white" style="transition:color .2s;">Home</a>
+        <a href="/services" class="no-underline hover:text-white" style="transition:color .2s;">Services</a>
+        <a href="/about-bnb-cohost" class="no-underline" style="color:var(--coral);">About</a>
+        <a href="/co-hosting-coaching" class="no-underline hover:text-white" style="transition:color .2s;">Coaching</a>
       </nav>
       <!-- Desktop CTA -->
       <div class="hidden md:flex items-center gap-2 flex-shrink-0">
         <a href="tel:+12402624678" class="btn-p btn-sm">+1 (240) BNB-HOST</a>
-        <a href="#book" class="btn-g btn-sm">Book Coaching</a>
+        <a href="/index#book" class="btn-g btn-sm">Book a Call</a>
       </div>
       <!-- Mobile: Book + hamburger -->
       <div class="flex md:hidden items-center gap-2">
-        <a href="#book" class="btn-p btn-sm">Book Coaching</a>
+        <a href="/index#book" class="btn-p btn-sm">Book a Call</a>
         <button class="ham-btn" id="ham-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">
           <span></span><span></span><span></span>
         </button>
@@ -129,8 +138,8 @@
     <div class="mobile-menu" id="mobile-menu">
       <a href="/index" class="no-underline">Home</a>
       <a href="/services" class="no-underline">Services</a>
-      <a href="/about-bnb-cohost" class="no-underline">About</a>
-      <a href="/co-hosting-coaching" class="no-underline active-link">Coaching</a>
+      <a href="/about-bnb-cohost" class="no-underline active-link">About</a>
+      <a href="/co-hosting-coaching" class="no-underline">Coaching</a>
       <a href="tel:+12402624678" class="mob-cta btn-p" style="text-decoration:none;">📞 +1 (240) BNB-HOST</a>
     </div>
   </div>
@@ -147,51 +156,68 @@
 
 
 <!-- HERO -->
-<section style="padding-top:calc(var(--nav-h) + env(safe-area-inset-top) + clamp(28px,5vw,56px));padding-bottom:clamp(32px,5vw,60px);">
+<section style="padding-top:calc(var(--nav-h) + env(safe-area-inset-top) + clamp(28px,5vw,56px));padding-bottom:clamp(40px,6vw,72px);">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-start">
 
       <!-- Left -->
       <div>
-        <p class="eyebrow mb-5">Co-hosting coaching</p>
-        <h1 class="display mb-5">Become a professional co-host — with <span>systems that work.</span></h1>
-        <p class="text-base mb-7" style="color:var(--muted);max-width:480px;line-height:1.7;">
-          We help you build the operating system: client onboarding, pricing, turnovers, vendor management, and reporting — so you take on clients with confidence.
+        <p class="eyebrow mb-5">About BnB CoHost</p>
+        <h1 class="display mb-5">
+          Co-hosting built on <span>systems, standards,</span> and transparent ops.
+        </h1>
+        <p class="text-base mb-7" style="color:var(--muted);max-width:480px;line-height:1.75;">
+          BnB CoHost helps STR and mid-term rental owners run smooth operations without living inside the day-to-day. We focus on repeatable SOPs, clear vendor coordination, and accountability you can actually verify.
         </p>
         <div class="flex flex-wrap gap-3 btn-stk mb-8">
-          <a href="#book" class="btn-p">Book a Coaching Call →</a>
-          <a href="#offers" class="btn-g">See Options</a>
+          <a href="/index#book" class="btn-p">Schedule a Discovery Call →</a>
+          <a href="/services" class="btn-g">View Services</a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <span class="chip text-xs">Client onboarding</span>
-          <span class="chip text-xs">Pricing systems</span>
-          <span class="chip text-xs">Turnover SOPs</span>
-          <span class="chip text-xs">Vendor playbooks</span>
-          <span class="chip text-xs">Guest messaging</span>
-          <span class="chip text-xs">Owner reporting</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip"><span class="chip-dot"></span>Owner visibility</span>
+          <span class="chip"><span class="chip-dot"></span>Turnover QA</span>
+          <span class="chip"><span class="chip-dot"></span>Maintenance coordination</span>
+          <span class="chip"><span class="chip-dot"></span>Platform-ready standards</span>
         </div>
-        <p class="text-xs mt-5" style="color:var(--muted);">
-          Best for: aspiring co-hosts · cleaners moving into operations · investors building a service · operators scaling past 1 property
-        </p>
       </div>
 
-      <!-- Right — quick-start card (3 bullets only) -->
+      <!-- Right — fee policy trust card -->
       <div class="card p-7">
-        <h2 class="text-lg font-bold mb-2">Fastest path: start here</h2>
-        <p class="text-sm mb-5" style="color:var(--muted);">Book a coaching call. We'll map your situation and give you a clear 30-day plan.</p>
-
-        <div class="rounded-xl p-5 mb-5" style="background:var(--coral-dim)!important;border:1px solid var(--coral-line);">
-          <p class="text-xs font-bold uppercase tracking-wider mb-3" style="color:var(--coral);">You leave with</p>
-          <div class="space-y-2 text-sm" style="color:var(--muted);">
-            <div class="flex gap-2"><span style="color:var(--coral);">✓</span>A simple operating plan tailored to you</div>
-            <div class="flex gap-2"><span style="color:var(--coral);">✓</span>Recommended next steps &amp; priorities</div>
-            <div class="flex gap-2"><span style="color:var(--coral);">✓</span>Optional follow-up roadmap to scale</div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="icon-tile" style="background:var(--coral-dim)!important;border-color:var(--coral-line);">🔎</div>
+          <div>
+            <h2 class="text-lg font-bold">Transparent by design</h2>
+            <p class="text-xs mt-1" style="color:var(--muted);">Clear scope, documented standards, owner approval on all spending.</p>
           </div>
         </div>
 
-        <div class="flex flex-wrap gap-3">
-          <a href="#book" class="btn-p" style="font-size:13px;padding:10px 20px;">Book Coaching Call</a>
-          <a href="tel:+12402624678" class="btn-g" style="font-size:13px;padding:10px 20px;">📞 Call Us</a>
+        <div class="value-row">
+          <div class="value-icon">💸</div>
+          <div>
+            <p class="text-sm font-bold mb-1">No markup on day-to-day ops</p>
+            <p class="text-sm" style="color:var(--muted);">Housekeeping, routine repairs, and annual maintenance pass through at cost — you see and approve the vendor's direct quote before anything moves forward.</p>
+          </div>
+        </div>
+
+        <div class="value-row">
+          <div class="value-icon">🏗️</div>
+          <div>
+            <p class="text-sm font-bold mb-1">Major renovations (over $5,000)</p>
+            <p class="text-sm" style="color:var(--muted);">A 15% management fee covers scope, coordination, scheduling, and QA. You get a clean package, not a mystery invoice.</p>
+          </div>
+        </div>
+
+        <div class="value-row">
+          <div class="value-icon">🤝</div>
+          <div>
+            <p class="text-sm font-bold mb-1">Our operating philosophy</p>
+            <p class="text-sm" style="color:var(--muted);">Be clear. Be consistent. Be accountable. Owners should never be surprised by what happened or what it cost.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="/index#book" class="btn-p btn-sm">Book a Call →</a>
+          <a href="tel:+12402624678" class="btn-g btn-sm">📞 Call Now</a>
         </div>
       </div>
 
@@ -199,213 +225,262 @@
   </div>
 </section>
 
+
+<!-- STATS BAR -->
+<div class="soft-break"></div>
+<section style="background:rgba(13,20,40,.5)!important;">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div class="reveal"><div class="stat-n">5.0</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Average Rating</div></div>
+      <div class="reveal d1"><div class="stat-n">237+</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Guest Reviews</div></div>
+      <div class="reveal d2"><div class="stat-n">6+</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Years Operating STRs</div></div>
+      <div class="reveal d3"><div class="stat-n">$0</div><div class="text-xs font-semibold uppercase tracking-wider mt-1" style="color:var(--muted);">Markup on Day-to-Day Ops</div></div>
+    </div>
+  </div>
+</section>
 <div class="soft-break"></div>
 
 
-<!-- WHO IT'S FOR -->
+<!-- WHAT MAKES US DIFFERENT -->
+<section>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="section-head reveal">
+      <p class="eyebrow mb-3">How we operate</p>
+      <h2 class="sec-title">What makes BnB CoHost <span>different</span></h2>
+      <p>A simple operating model owners understand — and guests feel in every stay.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 mb-5">
+      <div class="card p-6 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="icon-tile">🧾</div>
+          <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Spending</div>
+        </div>
+        <h3 class="text-base font-bold mb-2">Owner-approved spending</h3>
+        <p class="text-sm" style="color:var(--muted);line-height:1.7;">You see quotes and scope before work moves forward. No mystery charges, no retroactive surprises.</p>
+      </div>
+
+      <div class="card p-6 reveal d1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="icon-tile">📸</div>
+          <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Documentation</div>
+        </div>
+        <h3 class="text-base font-bold mb-2">Photo-based QA standards</h3>
+        <p class="text-sm" style="color:var(--muted);line-height:1.7;">Turnover QA, issue reporting, and documentation after every stay — easy to review, easy to trust.</p>
+      </div>
+
+      <div class="card p-6 reveal d2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="icon-tile">📋</div>
+          <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Consistency</div>
+        </div>
+        <h3 class="text-base font-bold mb-2">Repeatable SOPs</h3>
+        <p class="text-sm" style="color:var(--muted);line-height:1.7;">Checklists and workflows that keep quality consistent across stays — not dependent on memory or mood.</p>
+      </div>
+    </div>
+
+    <div class="card p-6 reveal">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="icon-tile" style="background:var(--coral-dim)!important;border-color:var(--coral-line);">📊</div>
+        <div class="text-xs font-bold uppercase tracking-widest" style="color:var(--muted);">Owner reporting</div>
+      </div>
+      <h3 class="text-base font-bold mb-2">Regular updates you can act on</h3>
+      <p class="text-sm" style="color:var(--muted);max-width:600px;line-height:1.7;">You get a clear reporting cadence — property condition, maintenance status, and turnover notes — so you're always informed without being on call.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHO WE WORK BEST WITH -->
+<div class="soft-break"></div>
 <section style="background:rgba(13,20,40,.4)!important;">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="section-head reveal">
-      <p class="eyebrow mb-3">Who this is for</p>
-      <h2 class="sec-title">Built for people <span>ready to operate professionally</span></h2>
+      <p class="eyebrow mb-3">Good fit?</p>
+      <h2 class="sec-title">Who we work <span>best with</span></h2>
+      <p>We're not for every host — we're for owners who want a real operating system, not just a vendor.</p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="card p-6 text-center reveal">
-        <div class="text-3xl mb-3">🚀</div>
-        <h3 class="text-sm font-bold mb-2">Aspiring Co-Hosts</h3>
-        <p class="text-xs" style="color:var(--muted);line-height:1.65;">Starting from zero? Get fundamentals and an execution plan to sign your first client.</p>
+
+    <div class="grid md:grid-cols-2 gap-5">
+
+      <div class="card p-7 reveal">
+        <h3 class="text-base font-bold mb-4" style="color:var(--coral2);">✓ Great fit</h3>
+        <div>
+          <div class="fit-item">
+            <span class="fit-check">✓</span>
+            <div>
+              <p class="text-sm font-semibold">Owners who want fewer surprises</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You want clear ops, not constant firefighting.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">✓</span>
+            <div>
+              <p class="text-sm font-semibold">Hosts scaling past one property</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You need repeatable systems, not ad-hoc decisions.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">✓</span>
+            <div>
+              <p class="text-sm font-semibold">Busy professionals</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You want reliable turnovers and maintenance readiness without being on call.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">✓</span>
+            <div>
+              <p class="text-sm font-semibold">Long-term investors</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You value consistent performance over quick hacks.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card p-6 text-center reveal d1">
-        <div class="text-3xl mb-3">🧹</div>
-        <h3 class="text-sm font-bold mb-2">Cleaners → Co-Hosts</h3>
-        <p class="text-xs" style="color:var(--muted);line-height:1.65;">Package your turnover skills into a full co-hosting service at higher margins.</p>
+
+      <div class="card p-7 reveal d1">
+        <h3 class="text-base font-bold mb-4" style="color:var(--muted);">What you can expect from us</h3>
+        <div>
+          <div class="fit-item">
+            <span class="fit-check">→</span>
+            <div>
+              <p class="text-sm font-semibold">Defined scope and clean communication</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You'll always know what's in scope and what isn't.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">→</span>
+            <div>
+              <p class="text-sm font-semibold">Vendor coordination without mystery markups</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">You see quotes. You approve. Nothing moves without you.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">→</span>
+            <div>
+              <p class="text-sm font-semibold">A system you can audit</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">Photos, notes, receipts — all accessible.</p>
+            </div>
+          </div>
+          <div class="fit-item">
+            <span class="fit-check">→</span>
+            <div>
+              <p class="text-sm font-semibold">A partner who runs the checklist</p>
+              <p class="text-xs mt-1" style="color:var(--muted);">Not the hype. Execution over promises.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card p-6 text-center reveal d2">
-        <div class="text-3xl mb-3">🏘️</div>
-        <h3 class="text-sm font-bold mb-2">Investors Building a Service</h3>
-        <p class="text-xs" style="color:var(--muted);line-height:1.65;">Own properties and want to manage others? Structure the business side correctly.</p>
-      </div>
-      <div class="card p-6 text-center reveal d3">
-        <div class="text-3xl mb-3">📊</div>
-        <h3 class="text-sm font-bold mb-2">Operators Scaling Up</h3>
-        <p class="text-xs" style="color:var(--muted);line-height:1.65;">Managing 1–3 listings and feeling the cracks? Build systems that hold as you grow.</p>
-      </div>
+
+    </div>
+
+    <div class="mt-8 text-center reveal">
+      <a href="/services" class="btn-g" style="margin-right:12px;">Compare Services</a>
+      <a href="/index#book" class="btn-p">Book a Discovery Call →</a>
     </div>
   </div>
 </section>
-
-<div class="soft-break"></div>
-
-
-<!-- DELIVERABLES — 2-column checklist -->
-<section>
-  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-    <div class="section-head reveal">
-      <p class="eyebrow mb-3">What you get</p>
-      <h2 class="sec-title">Coaching built for <span>execution</span></h2>
-      <p>Checklists, templates, and decision rules — not just theory.</p>
-    </div>
-
-    <div class="card p-7 reveal">
-      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Turnover SOP</p><p class="text-xs" style="color:var(--muted);">Step-by-step cleaning + inspection checklist</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Guest Message Templates</p><p class="text-xs" style="color:var(--muted);">Pre-arrival, mid-stay, post-checkout + SLAs</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Vendor Playbook</p><p class="text-xs" style="color:var(--muted);">How to vet, onboard, and manage vendors</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Owner Reporting Template</p><p class="text-xs" style="color:var(--muted);">Simple monthly summary that builds trust</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Maintenance Checklist</p><p class="text-xs" style="color:var(--muted);">Preventive checks + escalation rules</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Client Onboarding Flow</p><p class="text-xs" style="color:var(--muted);">From first meeting to first turnover</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Pricing Framework</p><p class="text-xs" style="color:var(--muted);">Fee structure, scope limits, positioning</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Service Packaging</p><p class="text-xs" style="color:var(--muted);">Define what's in vs. out of your service</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">Review Workflow</p><p class="text-xs" style="color:var(--muted);">Timing and approach for 5-star reviews</p></div></div>
-        <div class="flex items-start gap-3"><span style="color:var(--coral);margin-top:2px;">✓</span><div><p class="text-sm font-semibold">30-Day Action Plan</p><p class="text-xs" style="color:var(--muted);">Prioritized next steps for your situation</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="soft-break"></div>
-
-
-<!-- 3 COACHING OPTIONS -->
-<section id="offers" style="background:rgba(13,20,40,.4)!important;">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="section-head reveal">
-      <p class="eyebrow mb-3">Coaching options</p>
-      <h2 class="sec-title">Choose your <span>starting point</span></h2>
-      <p>All options use the same booking link — just tell us which you're interested in on the call.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="offer-card reveal">
-        <div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;">🧠</div>
-        <div class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Option 1</div>
-        <h3 class="text-lg font-bold mb-2">Starter Call</h3>
-        <p class="text-sm mb-5" style="color:var(--muted);line-height:1.65;">One focused session to map your situation and give you a clear 30-day action plan.</p>
-        <ul class="space-y-2 text-sm flex-1 mb-6" style="color:var(--muted);">
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>60-minute strategy session</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Scope + pricing discussion</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Prioritized 30-day action plan</li>
-        </ul>
-        <p class="text-xs mb-4" style="color:var(--muted);opacity:.65;">Best for: aspiring co-hosts just starting out</p>
-        <a href="#book" class="btn-g btn-sm" style="justify-content:center;">Book a Call →</a>
-      </div>
-
-      <div class="offer-card offer-featured reveal d1">
-        <span class="offer-label">Most Popular</span>
-        <div style="width:44px;height:44px;border-radius:14px;background:rgba(244,132,95,.15);border:1px solid var(--coral-line);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;">🧱</div>
-        <div class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--coral);">Option 2</div>
-        <h3 class="text-lg font-bold mb-2">Build Your Co-Host System</h3>
-        <p class="text-sm mb-5" style="color:var(--muted);line-height:1.65;">A full build-out of your operating system — SOPs, templates, pricing, and client onboarding.</p>
-        <ul class="space-y-2 text-sm flex-1 mb-6" style="color:var(--muted);">
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Everything in Starter Call</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Turnover SOP + vendor playbook</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Pricing framework + service packaging</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Guest templates + owner reporting</li>
-        </ul>
-        <p class="text-xs mb-4" style="color:var(--muted);opacity:.65;">Best for: operators ready to take on first clients</p>
-        <a href="#book" class="btn-p" style="justify-content:center;">Get Started →</a>
-      </div>
-
-      <div class="offer-card reveal d2">
-        <div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;">🚀</div>
-        <div class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Option 3</div>
-        <h3 class="text-lg font-bold mb-2">Launch Support (30 Days)</h3>
-        <p class="text-sm mb-5" style="color:var(--muted);line-height:1.65;">We build your system together and stay in your corner for 30 days as you implement and launch.</p>
-        <ul class="space-y-2 text-sm flex-1 mb-6" style="color:var(--muted);">
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Everything in Option 2</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>30-day async support channel</li>
-          <li class="flex gap-2"><span style="color:var(--coral);">✓</span>Document review + refinement</li>
-        </ul>
-        <p class="text-xs mb-4" style="color:var(--muted);opacity:.65;">Best for: operators scaling to multiple properties</p>
-        <a href="#book" class="btn-g btn-sm" style="justify-content:center;">Book a Call →</a>
-      </div>
-
-    </div>
-
-    <p class="text-center text-xs mt-8" style="color:var(--muted);">Not sure which option is right? Book a Starter Call — we'll figure it out together.</p>
-  </div>
-</section>
-
-<div class="soft-break"></div>
 
 
 <!-- FAQ -->
+<div class="soft-break"></div>
 <section>
   <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
     <div class="section-head reveal">
+      <p class="eyebrow mb-3">Quick answers</p>
       <h2 class="sec-title">Common <span>questions</span></h2>
     </div>
     <div class="space-y-3 reveal">
+
       <details class="card p-5 group">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
-          <span class="text-sm font-bold">Do I need experience to start coaching?</span>
+          <span class="text-sm font-bold">Do you manage short-term and mid-term rentals?</span>
           <span style="color:var(--coral);transition:transform .2s;" class="group-open:rotate-45 flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-sm" style="color:var(--muted);">No. If you're new, we focus on fundamentals: checklists, standards, vendor coordination, and client communication.</p>
+        <p class="mt-3 text-sm" style="color:var(--muted);">Yes — we support both STR and mid-term stays depending on the property and operating needs. Mention your rental type on your discovery call and we'll tailor the scope.</p>
       </details>
+
       <details class="card p-5 group">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
-          <span class="text-sm font-bold">Will you help me set my pricing and package my services?</span>
+          <span class="text-sm font-bold">Do you mark up housekeeping or vendor quotes?</span>
           <span style="color:var(--coral);transition:transform .2s;" class="group-open:rotate-45 flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-sm" style="color:var(--muted);">Yes. We define your scope, fee structure, and onboarding flow — so you attract the right owners at the right price.</p>
+        <p class="mt-3 text-sm" style="color:var(--muted);">No — day-to-day housekeeping, routine repairs, and annual maintenance are passed through at cost with owner approval. You see the vendor's direct quote before we proceed.</p>
       </details>
+
       <details class="card p-5 group">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
-          <span class="text-sm font-bold">Can I do this if I already co-host and want to improve?</span>
+          <span class="text-sm font-bold">What about major renovation projects?</span>
           <span style="color:var(--coral);transition:transform .2s;" class="group-open:rotate-45 flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-sm" style="color:var(--muted);">Absolutely. Experienced co-hosts get the most out of Option 2 or 3 — we help you systematize and scale what's already working.</p>
+        <p class="mt-3 text-sm" style="color:var(--muted);">For renovations over $5,000, we charge a 15% management fee covering scope, coordination, scheduling, and quality assurance. You get a clean packaged process, not a mystery invoice.</p>
       </details>
+
+      <details class="card p-5 group">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+          <span class="text-sm font-bold">Do you work outside Maryland / DC / Virginia?</span>
+          <span style="color:var(--coral);transition:transform .2s;" class="group-open:rotate-45 flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-3 text-sm" style="color:var(--muted);">Yes — we are increasingly remote-capable. Book a discovery call and we'll discuss what coverage looks like for your specific property and market.</p>
+      </details>
+
+      <details class="card p-5 group">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+          <span class="text-sm font-bold">How quickly can you get started?</span>
+          <span style="color:var(--coral);transition:transform .2s;" class="group-open:rotate-45 flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-3 text-sm" style="color:var(--muted);">Onboarding timeline depends on property location and service scope. We'll give you a realistic start date on your discovery call — typically within 1–2 weeks for housekeeping and turnovers.</p>
+      </details>
+
     </div>
   </div>
 </section>
 
+
+<!-- FINAL CTA -->
 <div class="soft-break"></div>
-
-
-<!-- BOOKING -->
-<section id="book">
+<section>
   <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-    <div class="card p-6 sm:p-8 reveal">
-      <div class="md:flex md:items-end md:justify-between gap-6 mb-6">
-        <div>
-          <p class="eyebrow mb-3">Book your coaching call</p>
-          <h2 class="sec-title mb-2">Come prepared. <span>Leave with a plan.</span></h2>
-          <p class="text-sm" style="color:var(--muted);">Choose a time. Bring your questions — we'll turn them into a clear execution plan.</p>
+    <div class="card-ft p-8 md:p-10 reveal">
+      <div class="md:flex md:items-center md:justify-between gap-8">
+        <div class="max-w-xl">
+          <p class="eyebrow mb-3">Ready to talk?</p>
+          <h2 class="sec-title mb-3">Book a free <span>Discovery Call</span></h2>
+          <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7;">No pressure, no pitch deck. We'll learn your property, answer your questions, and give you an honest recommendation on scope and next steps.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip" style="font-size:11px;">Free call · No obligation</span>
+            <span class="chip" style="font-size:11px;">Clear scope recommendation</span>
+            <span class="chip" style="font-size:11px;">STR + MTR properties</span>
+          </div>
         </div>
-        <div class="flex gap-3 mt-5 md:mt-0 flex-shrink-0">
-          <a href="tel:+12402624678" class="btn-g btn-sm">📞 Call Now</a>
-          <a href="/services" class="btn-p btn-sm">See Service Options</a>
+        <div class="mt-7 md:mt-0 flex-shrink-0 flex flex-col gap-3">
+          <a href="/index#book" class="btn-p">Schedule a Discovery Call →</a>
+          <a href="tel:+12402624678" class="btn-g btn-sm" style="justify-content:center;">📞 +1 (240) BNB-HOST</a>
+          <a href="mailto:hello@bnbcohost.link" class="btn-g btn-sm" style="justify-content:center;">✉️ hello@bnbcohost.link</a>
         </div>
-      </div>
-      <div class="embed-wrap">
-        <iframe src="https://api.leadconnectorhq.com/widget/booking/DlyjpVTcwMliLC86mT3Z" title="Book a discovery call with BnB CoHost" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="DlyjpVTcwMliLC86mT3Z_c3"></iframe>
-        <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- FOOTER -->
 <footer style="border-top:1px solid var(--line);padding-block:clamp(48px,6vw,72px);">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-8 mb-10">
       <div class="md:col-span-2">
         <img src="https://storage.googleapis.com/msgsndr/VlsfWgfLbf4xLfQJOYty/media/698135521f68d14feb2f125f.png" alt="BnB CoHost" class="h-10 w-auto mb-4" />
-        <p class="text-sm mb-5" style="color:var(--muted);max-width:300px;line-height:1.7;">Co-hosting + coaching for operators building repeatable systems.</p>
+        <p class="text-sm mb-5" style="color:var(--muted);max-width:300px;line-height:1.7;">Professional co-hosting for short-term and mid-term rental owners. Earn more while doing less.</p>
         <div class="flex flex-wrap gap-2">
           <a href="tel:+12402624678" class="chip no-underline" style="font-size:11px;">📞 +1 (240) BNB-HOST</a>
           <a href="mailto:hello@bnbcohost.link" class="chip no-underline" style="font-size:11px;">✉️ hello@bnbcohost.link</a>
         </div>
       </div>
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Links</h4>
+        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:var(--muted);">Services</h4>
         <ul class="space-y-2 text-sm" style="color:var(--muted);">
-          <li><a href="/index" class="no-underline hover:text-white" style="transition:color .2s;">Home</a></li>
-          <li><a href="/services" class="no-underline hover:text-white" style="transition:color .2s;">Services</a></li>
-          <li><a href="/about-bnb-cohost" class="no-underline hover:text-white" style="transition:color .2s;">About Us</a></li>
-          <li><a href="#book" class="no-underline hover:text-white" style="transition:color .2s;">Book Coaching Call</a></li>
+          <li><a href="/services" class="no-underline hover:text-white" style="transition:color .2s;">All Services</a></li>
+          <li><a href="/co-hosting-coaching" class="no-underline hover:text-white" style="transition:color .2s;">Coaching</a></li>
+          <li><a href="/index#book" class="no-underline hover:text-white" style="transition:color .2s;">Book a Call</a></li>
         </ul>
       </div>
       <div>
@@ -421,6 +496,7 @@
     </div>
   </div>
 </footer>
+
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver(function(entries) {
