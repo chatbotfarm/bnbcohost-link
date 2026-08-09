@@ -133,6 +133,34 @@
       .hide-mobile{display:none!important;}
     }
 
+    /* ── Mobile type scale ──────────────────────────────────────────────
+       Everything below Tailwind's md breakpoint goes up by 2px. !important
+       is required here: the Tailwind CDN injects its utility classes after
+       this stylesheet, and several sizes are set via inline style attrs. */
+    @media(max-width:767.98px){
+      body{font-size:17px;}
+      /* `body .x` outranks Tailwind's `.x` (which also pins a fixed line-height
+         to every size) while still yielding to inline style attrs, so the
+         per-element line-height:1.7 overrides in the markup survive intact. */
+      body .text-xs{font-size:14px;line-height:1.45;}
+      body .text-sm{font-size:16px;line-height:1.5;}
+      body .text-base{font-size:18px;line-height:1.55;}
+      body .text-lg{font-size:20px;line-height:1.5;}
+      body .text-xl{font-size:24px;line-height:1.4;}
+      body .leading-relaxed{line-height:1.625;}
+      .eyebrow{font-size:13px;}
+      .chip{font-size:14px!important;}
+      .bnb-b{font-size:12px!important;}
+      .ba-lbl{font-size:12px!important;}
+      .btn-p,.btn-g{font-size:16px;}
+      .btn-sm{font-size:15px;}
+      .mobile-menu a{font-size:17px;}
+      .section-head p{font-size:17px;}
+      .footer-legal{font-size:13px!important;}
+      .sec-title{font-size:clamp(28px,7vw,34px);}
+      /* "STR+MTR" overruns a 2-col cell at 40px on a 360px screen */
+      .stat-n{font-size:clamp(30px,9vw,40px);}
+    }
   </style>
 </head>
 <body>
@@ -513,7 +541,7 @@
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid var(--line);padding-top:24px;text-align:center;font-size:11px;color:#3e4a5e;">
+    <div class="footer-legal" style="border-top:1px solid var(--line);padding-top:24px;text-align:center;font-size:11px;color:#3e4a5e;">
       © <span id="yr"></span> BnB CoHost. All rights reserved. · <span style="opacity:.5;">Powered by <a href="https://chatbotfarm.ai" target="_blank" rel="noopener" style="color:inherit;" class="no-underline">ChatbotFarm.ai</a></span>
     </div>
   </div>
