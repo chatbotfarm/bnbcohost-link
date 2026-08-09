@@ -94,8 +94,18 @@
     .fit-item:last-child{border-bottom:none;}
     .fit-check{color:var(--coral);font-size:13px;margin-top:2px;flex-shrink:0;}
     /* Embed */
-    .embed-wrap{width:100%;}
-    .embed-wrap iframe{width:100%!important;max-width:100%!important;display:block!important;border:0!important;overflow:hidden!important;background:transparent!important;}
+    /* ── Calendar embed ──────────────────────────────────────────────
+       Full-bleed on purpose. form_embed.js runs iframe-resizer with
+       sizeWidth:false, so it only ever corrects the iframe's height —
+       whatever width the wrapper gives it IS the widget's viewport. Inside a
+       padded, bordered card the booking grid gets clipped. So: no padding,
+       no border, no max-width, no transformed ancestor.
+       The height below is a pre-resize fallback only. The resizer writes an
+       inline height on the iframe which outranks this rule once it runs, so
+       this must stay a plain `height` — not !important, not min-height. */
+    .cal-embed{width:100%;}
+    .cal-embed iframe{display:block;width:100%;height:780px;border:0;background:transparent;}
+    @media(min-width:768px){.cal-embed iframe{height:700px;}}
     /* Reveal */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
     .reveal.in{opacity:1;transform:none;}
